@@ -1,0 +1,220 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="DashBoard-Head">
+            <div>
+                <span>📦</span><span>NIT Delivery Hub</span>
+            </div>
+
+            <div class="Header-Right">
+                <div>
+                    Aman Sharma
+                </div>
+                <div>
+                    <button>
+                        Logout
+                    </button>
+                </div>
+
+            </div>
+        </div>
+        <div class="Second-Row">
+            <div class="dashboard-sidebar">
+                <div class="sidebar-menu">
+                    <button onclick="showOnly('dashboard',this)" class=".nav-button" >
+                        <span>🏠</span>Overview
+                    </button>
+                    <button onclick="showOnly('place-order-section',this)" class=".nav-button" id="Overview-Button">
+                        <span>📋</span>Place Order
+                    </button>
+                    <button onclick="showOnly('available-deliveries-section',this)" class=".nav-button">
+                        <span>🚚</span>Available Deliveries
+                    </button>
+                    <button onclick="showOnly('my-orders-section',this)"class=".nav-button">
+                        <span>📊</span>My Orders
+                    </button>
+                    <button onclick="showOnly('profile-section',this)"class=".nav-button">
+                        <span>👤</span>Profile
+                    </button>
+                </div>
+            </div>
+            <!-- Add All Divs on this level-->
+            <div id="dashboard" class="dashboard">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">🚚</div>
+                        <div class="stat-content">
+                            <div class="dashitemhead">
+                                <p id="user-deliveries-done">0</p>
+                            </div>
+                            <div>
+                                <p>Deliveries Done</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📦</div>
+                        <div class="stat-content">
+                            <div class="dashitemhead">
+                                <p id="user-orders-placed">0</p>
+                            </div>
+                            <div>
+                                <p>Orders Placed</p>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-content">
+                            <div class="dashitemhead">
+                                <p>₹<span id="user-earnings">0</span></p>
+                            </div>
+                            <div>
+                                <p>Total Earnings</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🔔</div>
+                        <div class="stat-content">
+                            <div class="notification-toggle">
+                                <label class="switch"><input type="checkbox" id="notification-toggle" /><span
+                                        class="slider"></span></label>
+                            </div>
+                            <p>SMS Notifications</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="recent-activity">
+                    <h3>Recent Activity</h3>
+                </div>
+
+
+            </div>
+            <div id="place-order-section" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Place Delivery Order</h2>
+                    <p>Request delivery from main gate to your hostel</p>
+                </div>
+                <form id="delivery-request-form" class="delivery-form">
+                    <div class="form-group">
+                        <label class="form-label">Parcel Type</label><select class="form-control" id="parcel-type"
+                            required>
+                            <option value="">Select Parcel Type</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Description</label><textarea class="form-control"
+                            id="parcel-description" rows="3" placeholder="Brief description of your parcel"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Delivery Fee: ₹20</label>
+                        <div class="fee-breakdown">
+                            <small>Deliverer gets ₹20 + Service fee of ₹2</small>
+                        </div>
+                    </div>
+                    <button type="submit" class="req-delivery-button">
+                        Request Delivery
+                    </button>
+                </form>
+            </div>
+
+
+
+
+            <div id="available-deliveries-section" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Available Deliveries</h2>
+                    <p>Accept delivery requests and earn money</p>
+                </div>
+                <div id="available-deliveries-list" class="deliveries-grid">
+                    <div class="delivery-details">
+                        <div class="delivery-name">
+                            <b>Amazon Package</b>
+                        </div>
+                        <div>
+                            <b>From : </b>Main Gate
+                        </div>
+                        <div>
+                            <b>To : </b>Room 101
+                        </div>
+                        <div>
+                            <b>Requested By : </b>Rahul Kumar
+                        </div>
+                        <div>
+                            <b>Description : </b>Electronics from Amazon
+                        </div>
+                    </div>
+                    <div class="delivery-price">
+                        ₹20
+                    </div>
+                    <div>
+                        <button class="Accept-Delivery-Button">Accept Deilvery</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div id="my-orders-section" class="dashboard-section">
+                <div class="section-header">
+                    <h2>My Orders</h2>
+                    <p>Track your delivery requests and history</p>
+                </div>
+                <div id="my-orders-list" class="orders-list"></div>
+            </div>
+
+
+
+            <div id="profile-section" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Profile</h2>
+                    <p>Manage your account settings</p>
+                </div>
+                <div class="profile-content">
+                    <div class="profile-info">
+                        <div class="profile-avatar">
+                            <span id="profile-avatar-text">AS</span>
+                        </div>
+                        <div class="profile-details">
+                            <h3 id="profile-name">Aman Sharma</h3>
+                            <p id="profile-email">Aman@gmail.com</p>
+                            <p id="profile-hostel-room">Ramappa Hostel A9-05</p>
+                            <p id="profile-phone">89746xxxxx</p>
+                        </div>
+                    </div>
+                    <div class="profile-stats">
+                        <div class="profile-stat">
+                            <h4 id="profile-deliveries">0</h4>
+                            <p>Deliveries Completed</p> 
+                        </div>
+                        <div class="profile-stat">
+                            <h4 id="profile-orders">0</h4>
+                            <p>Orders Placed</p>
+                        </div>
+                        <div class="profile-stat">
+                            <h4>₹<span id="profile-earnings">0</span></h4>
+                            <p>Total Earnings</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
