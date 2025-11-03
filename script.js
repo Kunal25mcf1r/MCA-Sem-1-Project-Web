@@ -1,5 +1,5 @@
 const divIds = ['dashboard', 'place-order-section', 'profile-section', 'my-orders-section', 'available-deliveries-section'];
-showOnly(divIds[4],document.getElementById('Overview-Button'))
+showOnly(divIds[0],document.getElementById('Overview-Button'))
 function showOnly(activeId, button) {
     // Loop through all div IDs
     for (let i = 0; i < divIds.length; i++) {
@@ -24,3 +24,4 @@ function showOnly(activeId, button) {
         button.classList.add("active");
     }
 }
+
